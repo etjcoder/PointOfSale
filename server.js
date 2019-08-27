@@ -20,7 +20,7 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 // app.use(routes);
-// require("./routes/burger-api-routes.js")(app);
+require("./routes/menu-api-routes.js")(app);
 // require("./routes/html-routes.js")(app);
 
 

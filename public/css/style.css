@@ -1,0 +1,36 @@
+.item-block {
+    background: #002299;
+    color: whitesmoke;
+}
+.item-block:hover {
+    background: lightskyblue;
+    color: whitesmoke;
+}
+
+.container {
+    width: 90%;
+    background: #000000;
+}
+
+body {
+    background: #000000;
+}
+
+.row {
+    background: #000000;
+}
+
+.menu-header {
+    color: whitesmoke
+}
+
+.add-item {
+    background: #300000;
+    color: whitesmoke
+}
+
+.order-col {
+    background: #002200;
+    color: whitesmoke;
+    padding: 20px;
+}

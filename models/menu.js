@@ -1,20 +1,21 @@
 module.exports = function (sequelize, DataTypes) {
-    var Burger = sequelize.define("Burger2", {
-        burger_name: {
+    var Menu = sequelize.define("Fooditem", {
+        item_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        devoured: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
         price: {
             type: DataTypes.INTEGER,
             defaultValue: 1,
             allowNull: false
+        },
+        sales: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            allowNull: true
         },
         createdAt: {
             type: DataTypes.DATE(3),
@@ -25,5 +26,5 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
         }
     });
-    return Burger;
+    return Menu;
 }

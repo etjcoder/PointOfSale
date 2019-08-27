@@ -4,18 +4,18 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    app.get("/burgers", function (req, res) {
+    app.get("/menu", function (req, res) {
 
-        db.Burger2.findAll({}
+        db.foodItems.findAll({}
             ).then(function (data) {
-            var burgerArray = [];
+            var itemArray = [];
             for(i = 0; i < data.length; i++){
-                (burgerArray).push(data[i].dataValues);
+                (itemArray).push(data[i].dataValues);
             }
             
             //Made Changes to this code, before it was burgers: data and then the keywords in the html had dataValues.burger_name and such
             var hbsObject = {
-                burgers: burgerArray
+                items: itemArray
             };
             res.render("index", hbsObject);
         })

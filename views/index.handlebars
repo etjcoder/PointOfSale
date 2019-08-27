@@ -1,60 +1,55 @@
 <div class="jumbotron">
-  <h1 class="display-1 text-center">Burgers!</h1>
+  <h1 class="display-1 text-center">Evan's Restaurant!</h1>
 </div>
 
 
 
 <div class="container">
   <div class="row">
-    <div class="col bg-light">
+    <div class="col bg-dark menu-header">
+      <h2>Menu:</h2>
+      <div class="row">
 
-      <h2>Burgers that haven't been eaten</h2>
+        {{#each items}}
 
-      <ul>
+        <div class="col-2 text-center item-block change-eaten" data-id="{{id}}" data-name="{{item_name}}" data-price="{{price}}">
+          <p>#{{id}}): {{item_name}}</p>
+          <p>Price: ${{price}}</p>
+          {{!-- <button class="change-eaten" data-id="{{id}}">
+            Order up!
+          </button> --}}
+          <hr>
+        </div>
 
-        {{#each burgers}}
-        {{#unless devoured}}
-        {{> burgers/burger-block ate=true}}
-        {{!-- <button id="delete-btn">Delete</button> --}}
-        {{/unless}}
         {{/each}}
-      </ul>
+
+      </div>
     </div>
 
-    <div class="col bg-dark">
-      <img
-        src="https://clipartion.com/wp-content/uploads/2015/11/free-hamburgers-clipart-free-clipart-graphics-images-and-photos.jpg"
-        class="img-fluid" alt="Responsive image">
-    </div>
-
-    <div class="col bg-light">
-      <h2>Burgers that have been eaten!</h2>
-
-      <ul>
-        {{#each burgers}}
-        {{!-- <button id="delete-btn">Delete</button> --}}
-        {{#if devoured}}
-        {{> burgers/burger-block ate=false}}
-        {{!-- <button id="delete-btn">Delete</button> --}}
-        {{/if}}
-        {{/each}}
-      </ul>
-    </div>
   </div>
 </div>
 
 
-<div class="row">
+<div class="row add-item">
   <div class="col text-center">
-    <h2>Add Burger</h2>
+    <h2>Add Food Item</h2>
     <form class="create-form">
 
       <div class="form-group">
-        <label for="ca">Burger Name:</label>
-        <input type="text" id="ca" name="burger_name">
+        <label for="item-name">Item Name:</label>
+        <input type="text" id="item-name" name="item_name">
+        <label for="item-price">Item Price:</label>
+        <input type="text" id="item-price" name="item_name">
       </div>
 
-      <button type="submit">Add Burger</button>
+      <button type="submit">Add to Menu</button>
     </form>
   </div>
+</div>
+
+<div class="row">
+  <div class="col text-center order-col">
+    <h3>Current Order:</h3>
+  </div>
+  <button id="cash-out">Cash Out</button>
 </div>
