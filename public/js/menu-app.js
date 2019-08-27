@@ -43,8 +43,8 @@ $(function () {
         $.ajax("api/menu/order/" + itemData, {
             type: "GET"
         }).then(function (data) {
-            console.log(data);
-            console.log("current sales: " + data.sales);
+            // console.log(data);
+            // console.log("current sales: " + data.sales);
             calculateNewSales(data.sales);
         })
 
@@ -88,14 +88,15 @@ $(function () {
             }).then(
                 function () {
                     console.log("Logged this order");
-                    location.reload();
+                    $(".order-col").text("");
+                    orderTotal = 0;
+                    orderSum = [];
                 }
             )
         }, 1000)
 
         // orderArray = [];
-        $(".order-col").text("");
-        orderTotal = 0;
+       
     })
 
 });
